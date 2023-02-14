@@ -23,7 +23,6 @@ public class RobotContainer {
   private final Pivot pivot = new Pivot();
   private final Claw claw = new Claw();
   private final Pistons pistons = new Pistons();
-
   
   private final CommandXboxController mDriver =
       new CommandXboxController(0);
@@ -39,8 +38,8 @@ public class RobotContainer {
 
     CommandScheduler.getInstance().setDefaultCommand(drivetrain, 
       new DriverControl(drivetrain,
-        () -> mDriver.getLeftY(), 
-        () -> mDriver.getLeftX()));
+        () -> -mDriver.getLeftY(), 
+        () -> mDriver.getRightX()));
 
       //Intake or Grab
       mOperator.a().whileTrue(
